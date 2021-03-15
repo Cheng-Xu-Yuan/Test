@@ -1,0 +1,11 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+    mode: HTML5
+  datasource:
+    username: test
+    password: 123456
+    url: jdbc:mysql://192.168.11.107:3306/text?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
