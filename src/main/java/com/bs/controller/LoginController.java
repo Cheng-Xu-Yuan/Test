@@ -52,7 +52,7 @@ public class LoginController {
     public String JumpPageLogin(){
         return "login";
     }
-    //跳转页面
+    //跳转后台页面
     @RequestMapping("/manage")
     public String JumPageManage(Model model){
         Map paramMap = new HashMap();
@@ -66,5 +66,20 @@ public class LoginController {
         List<Map> resultList = loginService.findAll(paramMap);
         model.addAttribute("resultList",resultList);
         return "manage";
+    }
+    //跳转角色管理页面
+    @RequestMapping("/xtgl/jsgl")
+    public String JumpPageRole(Model model){
+        Map paramMap = new HashMap();
+        List<Map> list = content;
+        for (Map map : list){
+            for (Object k : map.keySet()){
+                paramMap.put(k,map.get(k));
+            }
+        }
+        //System.out.println(paramMap);
+        List<Map> resultList = loginService.findAll(paramMap);
+        model.addAttribute("resultList",resultList);
+        return "role_manage";
     }
 }

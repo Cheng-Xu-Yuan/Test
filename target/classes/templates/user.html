@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>人员信息</title>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <td>员工id</td>
+            <td>员工姓名</td>
+            <td>员工年龄</td>
+            <td>员工性别</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="resultList:${resultList}">
+            <td th:text="${resultList.uid}"></td>
+            <td th:text="${resultList.user_name}"></td>
+            <td th:text="${resultList.age}"></td>
+            <td th:text="${resultList.sex}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

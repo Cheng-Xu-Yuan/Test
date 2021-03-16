@@ -24,8 +24,8 @@
                 <li class="layui-nav-item layui-nav-itemed" th:each="resultl:${resultList}" th:if="${resultl.pid} eq 0">
                     <a class="" th:name="${resultl.url}" href="javascript:;" th:text="${resultl.power_name}"></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" th:each="isFlase:${resultList}" th:if="${isFlase.pid} eq ${resultl.id}"
-                               th:name="${isFlase.url}" th:text="${isFlase.power_name}"></a></dd>
+                        <dd><a th:href="@{${isFlase.url}}" th:each="isFlase:${resultList}" th:if="${isFlase.pid} eq ${resultl.id}"
+                               th:text="${isFlase.power_name}"></a></dd>
                     </dl>
                 </li>
             </ul>
