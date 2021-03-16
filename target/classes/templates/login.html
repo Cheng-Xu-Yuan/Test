@@ -2,16 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <title>后台管理</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}"/>
 </head>
 <body>
-    <div>
-        <form>
-
-            账号：<input name="user_id" type="text"/>
-            密码：<input name="password" type="password"/>
-            <button>登录</button>
+    <div style="position: absolute;top: 300px;right: 300px;width: 350px;height: 300px;border: 1px solid #0C0C0C;">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>后台管理系统</legend>
+        </fieldset>
+        <form class="layui-form" action="" lay-filter="ftForm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">账号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="uid" placeholder="请输入账号" class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-block">
+                    <input type="password" name="password" placeholder="请输入账号" class="layui-input"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="formDemo">登录</button>
+                </div>
+            </div>
         </form>
     </div>
+
+    <script type="text/javascript" th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+    <script type="text/javascript" th:src="@{/js/login.js}"></script>
 </body>
 </html>
