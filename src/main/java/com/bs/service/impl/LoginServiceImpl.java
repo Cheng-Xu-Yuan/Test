@@ -1,13 +1,14 @@
-package com.bs.service;
+package com.bs.service.impl;
 
 import com.bs.dao.LoginMapper;
+import com.bs.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 @Service
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
     @Autowired
     private LoginMapper loginMapper;
     //登录
