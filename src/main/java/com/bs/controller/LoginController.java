@@ -3,6 +3,7 @@ package com.bs.controller;
 import com.bs.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,8 +54,17 @@ public class LoginController {
     }
     //跳转页面
     @RequestMapping("/manage")
-    public String JumPageManage(){
-        System.out.println(content);
+    public String JumPageManage(Model model){
+        Map paramMap = new HashMap();
+        List<Map> list = content;
+        for (Map map : list){
+            for (Object k : map.keySet()){
+                paramMap.put(k,map.get(k));
+            }
+        }
+        //System.out.println(paramMap);
+        List<Map> resultList = loginService.findAll(paramMap);
+        model.addAttribute("resultList",resultList);
         return "manage";
     }
 }
