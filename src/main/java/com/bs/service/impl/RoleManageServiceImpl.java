@@ -17,4 +17,18 @@ public class RoleManageServiceImpl implements RoleManageService {
     public List<Map> findAllRole(Map paramMap) {
         return roleManageMapper.findAllRole(paramMap);
     }
+    //添加或修改角色
+    @Override
+    public void addOrUpdate(Map paramMap) {
+        if (paramMap.get("role_id")!=""){
+            roleManageMapper.update(paramMap);
+        }else{
+            roleManageMapper.add(paramMap);
+        }
+    }
+    //删除角色
+    @Override
+    public void del(Map paramMap) {
+        roleManageMapper.del(paramMap);
+    }
 }

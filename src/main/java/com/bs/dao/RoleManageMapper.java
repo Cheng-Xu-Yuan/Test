@@ -9,4 +9,10 @@ import java.util.Map;
 public interface RoleManageMapper {
     //查询所有角色
     public List<Map> findAllRole(Map paramMap);
+    //添加角色
+    public void add(Map paramMap);
+    //修改角色
+    public void update(Map paramMap);
+    //删除角色
+    public void del(Map paramMap);
 }

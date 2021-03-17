@@ -3,6 +3,7 @@ package com.bs.controller;
 import com.bs.service.RoleManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,6 +30,47 @@ public class RoleManageController {
         }catch (Exception e){
             code = -1;
             msg = "操作异常";
+            e.printStackTrace();
+        }
+        mapModel.put("code",code);
+        mapModel.put("msg",msg);
+        return mapModel;
+    }
+    //添加或修改角色
+    @PostMapping("/addorupdate")
+    @ResponseBody
+    public Object addOrUpdate(@RequestParam Map paramMap){
+        int code = 0;
+        String msg = "操作成功";
+        Map mapModel = new HashMap();
+        try{
+            roleManageService.addOrUpdate(paramMap);
+            if (paramMap.get("role_id")!=""){
+                msg = "修改成功";
+            }else{
+                msg = "添加成功";
+            }
+        }catch (Exception e){
+            code = -1;
+            msg = "数据异常";
+            e.printStackTrace();
+        }
+        mapModel.put("code",code);
+        mapModel.put("msg",msg);
+        return mapModel;
+    }
+    //删除角色
+    @PostMapping("/del")
+    @ResponseBody
+    public Object del(@RequestParam Map paramMap){
+        int code = 0;
+        String msg = "删除成功";
+        Map mapModel = new HashMap();
+        try{
+            roleManageService.del(paramMap);
+        }catch (Exception e){
+            code = -1;
+            msg = "数据异常";
             e.printStackTrace();
         }
         mapModel.put("code",code);
